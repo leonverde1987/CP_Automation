@@ -53,7 +53,7 @@ public class CPSN_Registro_Socio_Menor{
     
         Config = genericSteps.getPropetiesFile("configuracion\\configuracion.properties");
         UIRegistro = genericSteps.getPropetiesFile("configuracion\\uielements\\registro.properties");
-        DataDriven = genericSteps.ObtenerDatos("configuracion\\Datos\\datoRegistro.csv");
+        DataDriven = genericSteps.ObtenerDatos("configuracion\\Datos\\dt_RegistroUsuarioMenor.csv");
         contador = 1;
         RutaEvidencia = Config.getProperty("rutaEvidencia");
         Resultado = "Fallido";
