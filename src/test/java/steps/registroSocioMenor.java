@@ -6,7 +6,7 @@ import java.util.Properties;
 import org.junit.ComparisonFailure;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-public class registroUsuario extends genericGrid{
+public class registroSocioMenor extends genericGrid{
 
     /**
      * Est´s método abre el menú Registro 

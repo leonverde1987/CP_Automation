@@ -30,4 +30,11 @@ public class LoginSteps extends genericGrid{
         return msj;
     }
     
+    public void loginAplicativo(RemoteWebDriver driver, String Usuario, String Password, Properties Config, Properties Elementos, int contador, String Escenario, String navegador) throws InterruptedException{
+        this.ingresarTexto(driver, "xpath", Elementos.getProperty("reg_ipt_usuario"), Usuario);
+        this.ingresarTexto(driver, "xpath", Elementos.getProperty("lgn_ipt_password"), Password);
+        this.capturaDriver(driver, Config.getProperty("rutaEvidencia"), contador, Escenario, navegador);
+        this.click(driver, "xpath", Elementos.getProperty("lgn_btn_entrar"));
+    }
+    
 }

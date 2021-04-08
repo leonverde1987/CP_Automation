@@ -21,7 +21,7 @@ import steps.registroUsuario;
 
 
 
-public class CPSN_Registro_Usuario{
+public class CPSN_Registro_Socio_Menor{
     
     //STEPS
     public GenericSteps genericSteps = new GenericSteps();
@@ -64,14 +64,14 @@ public class CPSN_Registro_Usuario{
     }
     
     @Test
-    public void CPSN_Registro_Usuario() throws InterruptedException, DocumentException, BadElementException, IOException, Exception {
+    public void CPSN_Registro_Socio() throws InterruptedException, DocumentException, BadElementException, IOException, Exception {
         DataDriven.readNext();
         int Repeticion = 1;
         
         while((filaDatos = DataDriven.readNext()) != null){
-            String sucursal = filaDatos[0];
-            String puesto = filaDatos[1];
-            String nomina = filaDatos[2];
+            String usuario = filaDatos[0];
+            String pass = filaDatos[1];
+            String noSocio = filaDatos[2];
             String pnombre = filaDatos[3];
             String snombre = filaDatos[4];
             String papellido = filaDatos[5];
@@ -82,36 +82,34 @@ public class CPSN_Registro_Usuario{
             
             try{
 
-                    Escenario = "CP_Registro_Usuario "+Repeticion;
+                Escenario = "CP_Registro_Socio "+Repeticion;
 
-                    //Paso 1
-                    Pasos.add(contador+".- Abrir navegador en la URL: "+Config.getProperty("urlCP"));
-                    genericSteps.ingresarAURL(driver, contador, Config, Escenario, Navegador);
-                    
-                    //Paso 2
-                    contador++;
-                    Pasos.add(contador+".- Ingresar menú: Registro");
-                    this.registroUsuariosSteps.clickMenuRegistro(driver, UIRegistro, Config, contador, Escenario, Navegador);
-                    
-                    //Paso 3
-                    contador++;
-                    Pasos.add(contador+".- Ingresar los datos del registro Sucursal: "+sucursal+", Nómina: "+nomina+", Primer Nombre: "+pnombre+", Segundo Nombre: "+snombre+", Primer Apellido: "+papellido+", Segundo Apellido: "+sapellido+", Contraseña: "+contrasena+", Usuario Autoriza: "+usuarioAutoriza+", Contraseña Usuario Autoriza: "+contrasenaAutoriza+".");
-                    this.registroUsuariosSteps.ingresarDatosUsuarioNuevo(driver, sucursal, puesto, nomina, pnombre, snombre, papellido, sapellido, contrasena, contrasena, usuarioAutoriza, contrasenaAutoriza, UIRegistro, Config, contador, Escenario, Navegador);
-                    
-                    //Paso 4
-                    contador++;
-                    Pasos.add(contador+".- Aceptar aviso de privacidad.");
-                    this.registroUsuariosSteps.clicAceptaAvisos(driver, UIRegistro, Config, contador, Escenario, Navegador);
-                   
-                    //Paso 9
-                    contador++;
-                    Pasos.add(contador+".- Presionar el botón: Registrar.");
-                    this.registroUsuariosSteps.clicRegistrarUsuariosNuevo(driver, UIRegistro, Config, contador, Escenario, Navegador);
-                    
-                    contador++;
-                    Pasos.add(contador+".- Presionar el botón: Si.");
-                    this.registroUsuariosSteps.clicbotonSi(driver, UIRegistro, Config, contador, Escenario, Navegador);
-                    Resultado="Exitoso";
+                //Paso 1
+                Pasos.add(contador+".- Abrir navegador en la URL: "+Config.getProperty("urlCP"));
+                genericSteps.ingresarAURL(driver, contador, Config, Escenario, Navegador);
+
+                //Paso 2
+                contador++;
+                Pasos.add(contador+".- Hacer login: "+usuario+" Contraseña: "+pass);
+                this.loginSteps.loginAplicativo(driver, usuario, pass, Config, UIRegistro, contador, Escenario, Navegador);
+
+                //Paso 3
+                contador++;
+                Pasos.add(contador+".- Ingresar los datos generales del socio = Primer Nombre: "+pnombre+", Segundo Nombre: "+snombre+", Primer Apellido: "+papellido+", Segundo Apellido: "+sapellido+", Contraseña: "+contrasena+", Usuario Autoriza: "+usuarioAutoriza+", Contraseña Usuario Autoriza: "+contrasenaAutoriza+".");
+                
+
+                //Paso 4
+                contador++;
+                Pasos.add(contador+".- .");
+
+                //Paso 9
+                contador++;
+                Pasos.add(contador+".- .");
+
+                contador++;
+                Pasos.add(contador+".- Presionar el botón: Si.");
+                this.registroUsuariosSteps.clicbotonSi(driver, UIRegistro, Config, contador, Escenario, Navegador);
+                Resultado="Exitoso";
                     
             }catch(NoSuchElementException s){
                 Resultado = "Ejecución Fallida, No se encontró elemento: "+s;
