@@ -36,20 +36,12 @@ public class GenericSteps extends genericGrid{
     /**
      * Esté Método nos ayuda a dirigir el driver a una URL en especifico.
      * @param driver Elemento WebDriver de la prueba.
-     * @param contador Es el controlador de pasos ejecutados.
      * @param Config Es el archivo de configuración de la prueba.
-     * @param Escenario Es el nombre del caso de prueba.
      * @throws FileNotFoundException Cacha cualquier excepción en la ejecución.
      * @throws InterruptedException Cacha si el archivo Config no existe.
      */
-    public void ingresarAURL(RemoteWebDriver driver, int contador, Properties Config, String Escenario, String navegador) throws FileNotFoundException, InterruptedException {
-        try{
-            this.abrirURl(driver, Config.getProperty("urlCP"));
-            this.capturaDriver(driver, Config.getProperty("rutaEvidencia"), contador, Escenario, navegador);
-        }catch(InterruptedException e){
-            System.out.println("Mensaje: "+e);
-        }
-        
+    public void ingresarAURL(RemoteWebDriver driver, Properties Config) throws FileNotFoundException, InterruptedException {
+        this.abrirURl(driver, Config.getProperty("urlCP"));
     }
     
     /**

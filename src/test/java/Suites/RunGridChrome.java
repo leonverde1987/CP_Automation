@@ -18,7 +18,7 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-    TestCases.CPSN_Registro_Usuario.class
+    TestCases.CPSN_Registro_Socio_Adulto.class
 })  
 public class RunGridChrome {
     

@@ -60,7 +60,8 @@ public class CPSN_Registro_Usuario{
         Navegador = Config.getProperty("Navegador");
         driver = genericSteps.openGridBrowser(Navegador, Config);
         ResultadoGlobal = "Exitoso";
-        
+        //Abrir URL
+        this.genericSteps.ingresarAURL(driver, Config);
     }
     
     @Test
@@ -85,10 +86,6 @@ public class CPSN_Registro_Usuario{
                     Escenario = "CP_Registro_Usuario "+Repeticion;
 
                     //Paso 1
-                    Pasos.add(contador+".- Abrir navegador en la URL: "+Config.getProperty("urlCP"));
-                    genericSteps.ingresarAURL(driver, contador, Config, Escenario, Navegador);
-                    
-                    //Paso 2
                     contador++;
                     Pasos.add(contador+".- Ingresar menú: Registro");
                     this.registroUsuariosSteps.clickMenuRegistro(driver, UIRegistro, Config, contador, Escenario, Navegador);

@@ -60,7 +60,11 @@ public class CPSN_Registro_Socio_Menor{
         Navegador = Config.getProperty("Navegador");
         driver = genericSteps.openGridBrowser(Navegador, Config);
         ResultadoGlobal = "Exitoso";
-        
+        //Abrir URL
+        this.genericSteps.ingresarAURL(driver, Config);
+        //Hacer Login
+        this.loginSteps.loginAplicativo(driver, Config.getProperty("UsuServicios"), Config.getProperty("PasServicios"), UIRegistro);
+
     }
     
     @Test
@@ -69,31 +73,20 @@ public class CPSN_Registro_Socio_Menor{
         int Repeticion = 1;
         
         while((filaDatos = DataDriven.readNext()) != null){
-            String usuario = filaDatos[0];
-            String pass = filaDatos[1];
-            String noSocio = filaDatos[2];
-            String pnombre = filaDatos[3];
-            String snombre = filaDatos[4];
-            String papellido = filaDatos[5];
-            String sapellido = filaDatos[6];
-            String contrasena = filaDatos[7];
-            String usuarioAutoriza = filaDatos[8];
-            String contrasenaAutoriza = filaDatos[9];
+            String noSocio = filaDatos[0];
+            String pnombre = filaDatos[1];
+            String snombre = filaDatos[2];
+            String papellido = filaDatos[3];
+            String sapellido = filaDatos[4];
+            String contrasena = filaDatos[5];
+            String usuarioAutoriza = filaDatos[6];
+            String contrasenaAutoriza = filaDatos[7];
             
             try{
 
-                Escenario = "CP_Registro_Socio "+Repeticion;
+                Escenario = "CP Registro Socio Adulto "+noSocio;
 
                 //Paso 1
-                Pasos.add(contador+".- Abrir navegador en la URL: "+Config.getProperty("urlCP"));
-                genericSteps.ingresarAURL(driver, contador, Config, Escenario, Navegador);
-
-                //Paso 2
-                contador++;
-                Pasos.add(contador+".- Hacer login: "+usuario+" Contraseña: "+pass);
-                this.loginSteps.loginAplicativo(driver, usuario, pass, Config, UIRegistro, contador, Escenario, Navegador);
-
-                //Paso 3
                 contador++;
                 Pasos.add(contador+".- Ingresar los datos generales del socio = Primer Nombre: "+pnombre+", Segundo Nombre: "+snombre+", Primer Apellido: "+papellido+", Segundo Apellido: "+sapellido+", Contraseña: "+contrasena+", Usuario Autoriza: "+usuarioAutoriza+", Contraseña Usuario Autoriza: "+contrasenaAutoriza+".");
                 

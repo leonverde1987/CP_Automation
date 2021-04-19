@@ -616,6 +616,7 @@ public class genericGrid extends evidenceGrid {
             if(txt.contains(texto)){
                 System.out.println(txt);
                 buscarTexto.get(a).click();
+                break;
             }
         }
     }
