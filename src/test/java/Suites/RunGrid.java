@@ -37,7 +37,7 @@ public class RunGrid {
         Config.setProperty("rutaEvidencia",ruta);
         Config.store(new FileWriter("configuracion\\configuracion.properties"),"Actualizacoión de ruta evidencias");
   
-        //new generic.genericGrid().leventarNodosGrid();
+//        new generic.genericGrid().leventarNodosGrid();
 
     }
 

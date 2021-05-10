@@ -94,25 +94,28 @@ public class CPSN_Registro_Socio_Adulto{
             String ubicacionContacto = filaDatos[17]; 
             String noExt = filaDatos[18]; 
             String noInt = filaDatos[19];
+            String anosResidencia = filaDatos[20]; 
+            String telContacto = filaDatos[21];
             //Generales
-            String casaHabita = filaDatos[20];
-            String escolaridad = filaDatos[21];
-            String sexo = filaDatos[22];
-            String tipoSocio = filaDatos[23];
-            String comoEntero = filaDatos[24];	
-            String salud = filaDatos[25];	
-            String estadoCivil = filaDatos[26];
+            String casaHabita = filaDatos[22];
+            String escolaridad = filaDatos[23];
+            String profesion = filaDatos[24];
+            String sexo = filaDatos[25];
+            String tipoSocio = filaDatos[26];
+            String comoEntero = filaDatos[27];	
+            String salud = filaDatos[28];	
+            String estadoCivil = filaDatos[29];
             //Beneficiario
-            String nombresBene = filaDatos[27]; 
-            String apaternoBene = filaDatos[28]; 
-            String amaternoBene = filaDatos[29]; 
-            String telBene = filaDatos[30];
+            String nombresBene = filaDatos[30]; 
+            String apaternoBene = filaDatos[31]; 
+            String amaternoBene = filaDatos[32]; 
+            String telBene = filaDatos[33];
             //Empleos
-            String ocupacion = filaDatos[31];
+            String ocupacion = filaDatos[34];
             //Referencias
-            String nombreRef = filaDatos[32];
-            String telRef = filaDatos[33]; 
-            String tipoRef = filaDatos[34];           
+            String nombreRef = filaDatos[35];
+            String telRef = filaDatos[36]; 
+            String tipoRef = filaDatos[37];           
             //Referencias
 
             try{
@@ -136,12 +139,12 @@ public class CPSN_Registro_Socio_Adulto{
                 //Paso 5
                 contador++;
                 Pasos.add(contador+".- Ingresar los datos de contacto del socio.");
-                this.registroAdultoSteps.ingresarDatosContacto(driver, estadoContacto, ciudadContacto, asentamientoContacto, cpContacto, calleContacto, ubicacionContacto, noExt, noInt, UIRegistroAdulto, Config, contador, Escenario, Navegador);
+                this.registroAdultoSteps.ingresarDatosContacto(driver, estadoContacto, ciudadContacto, asentamientoContacto, cpContacto, calleContacto, ubicacionContacto, noExt, noInt, anosResidencia, telContacto, UIRegistroAdulto, Config, contador, Escenario, Navegador);
                 
                 //Paso 6
                 contador++;
                 Pasos.add(contador+".- Ingresar los datos generales del socio.");
-                this.registroAdultoSteps.ingresarDatosGenerales(driver, casaHabita, escolaridad, sexo, tipoSocio, comoEntero, salud, estadoCivil, UIRegistroAdulto, Config, contador, Escenario, Navegador);
+                this.registroAdultoSteps.ingresarDatosGenerales(driver, casaHabita, escolaridad, profesion, sexo, tipoSocio, comoEntero, salud, estadoCivil, UIRegistroAdulto, Config, contador, Escenario, Navegador);
                 
                 //Paso 7
                 contador++;

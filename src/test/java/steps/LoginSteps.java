@@ -40,6 +40,6 @@ public class LoginSteps extends genericGrid{
     public void logonAplicativo(RemoteWebDriver driver, Properties Elementos) throws InterruptedException{
         this.click(driver, "xpath", Elementos.getProperty("soc_btn_salir"));
         this.dormirSeg(3);
-        this.click(driver, "xpath", Elementos.getProperty("soc_btn_si_logon"));
+        this.click(driver, "xpath", Elementos.getProperty("soc_btn_si_socio_adulto"));
     }
 }
